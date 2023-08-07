@@ -43,7 +43,12 @@ function hexToRgb(hex: string): { r: number; g: number; b: number } {
 function switchCSSStyle(theme: string): void {
   const targetColor = theme === 'dark-theme' ? DesignDarkColor.value : DesignLightColor.value
   const initialColor = theme === 'dark-theme' ? DesignLightColor.value : DesignDarkColor.value
-  const layer = FadeLayer.value >= 1 ? FadeLayer.value : 1
+  const layer = Math.ceil(FadeLayer.value)
+
+  if (layer < 1) {
+    globalcolor.value = targetColor
+    return
+  }
 
   for (let i = 1; i <= layer; i++) {
     setTimeout(() => {

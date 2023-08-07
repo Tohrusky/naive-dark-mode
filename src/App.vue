@@ -32,8 +32,8 @@ function handleDarkModeChange(mode: NaiveDarkModeType): void {
           <n-input-number
             v-model:value="fadeLayer"
             clearable
-            :precision="0"
-            min="1"
+            min="0"
+            step="1"
             style="width: 240px"
             placeholder="FadeLayer"
           />
