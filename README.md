@@ -57,13 +57,14 @@ export type NaiveDarkModeType = undefined | 'light' | 'dark' | 'system'
 
 ```vue
 <script lang="ts" setup>
-import { NaiveDarkMode, NaiveDarkModeType, globalcolor, naiveTheme } from 'naive-dark-mode'
+import { NConfigProvider, NGlobalStyle } from 'naive-ui'
+import { NaiveDarkMode, globalcolor, naiveTheme } from 'naive-dark-mode'
 </script>
 
 <template>
   <n-config-provider :theme="naiveTheme">
     <n-global-style />
-    <NaiveDarkMode
+    <naive-dark-mode
       :design-light="'#f1baba'"
       :design-dark="'#243333'"
       class="naive-dark-mode"
