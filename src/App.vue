@@ -16,7 +16,7 @@ function handleDarkModeChange(mode: NaiveDarkModeType): void {
     <NaiveDarkMode
       :key="fadeLayer"
       :fade-layer="fadeLayer"
-      :design-light="'#f1baba'"
+      :design-light="'#ffe0e0'"
       :design-dark="'#243333'"
       class="naive-dark-mode"
     />
