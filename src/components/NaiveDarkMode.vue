@@ -57,14 +57,14 @@ onMounted(async () => {
       }
     }
   }
-  console.log('onMounted  ', DarkTheme.value)
+  // console.log('onMounted  ', DarkTheme.value)
 })
 
 // 检测系统主题，修改 DarkTheme.value
 watch(osThemeRef, (value) => {
   if (DarkMode.value === 'system' || DarkMode.value === undefined) {
     DarkTheme.value = value === 'dark'
-    console.log('watch  ', DarkTheme.value)
+    // console.log('watch  ', DarkTheme.value)
   }
 })
 </script>
