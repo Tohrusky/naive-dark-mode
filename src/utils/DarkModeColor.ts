@@ -39,10 +39,15 @@ function hexToRgb(hex: string): { r: number; g: number; b: number } {
 
 /**
  * @description Smooth transition to dark mode
+ * @param mode 'dark' or 'light' or 'system'
  */
-function switchCSSStyle(theme: string): void {
-  const targetColor = theme === 'dark-theme' ? DesignDarkColor.value : DesignLightColor.value
-  const initialColor = theme === 'dark-theme' ? DesignLightColor.value : DesignDarkColor.value
+function switchCSSStyle(mode: NaiveDarkModeType): void {
+  if (mode === 'system') {
+    const osThemeRef = useOsTheme()
+    mode = osThemeRef.value === 'dark' ? 'dark' : 'light'
+  }
+  const targetColor = mode === 'dark' ? DesignDarkColor.value : DesignLightColor.value
+  const initialColor = mode === 'dark' ? DesignLightColor.value : DesignDarkColor.value
   const layer = Math.ceil(FadeLayer.value)
 
   if (layer < 1) {
@@ -61,6 +66,7 @@ function switchCSSStyle(theme: string): void {
 
 /**
  * @description Switch the theme between light and dark
+ * @param mode 'dark' or 'light' or 'system'
  */
 function switchTheme(mode: NaiveDarkModeType): void {
   if (mode === 'system') {
@@ -91,12 +97,12 @@ function isCSSLight(): boolean {
 const naiveTheme = computed(() => {
   if (DarkTheme.value) {
     if (isCSSLight()) {
-      switchCSSStyle('dark-theme')
+      switchCSSStyle('dark')
     }
     return darkTheme
   } else {
     if (isCSSDark()) {
-      switchCSSStyle('light-theme')
+      switchCSSStyle('light')
     }
     return undefined
   }

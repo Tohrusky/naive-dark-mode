@@ -49,11 +49,11 @@ onMounted(async () => {
     DarkTheme.value = DarkMode.value === 'dark'
     if (DarkMode.value === 'dark') {
       if (isCSSLight()) {
-        switchCSSStyle('dark-theme')
+        switchCSSStyle('dark')
       }
     } else {
       if (isCSSDark()) {
-        switchCSSStyle('light-theme')
+        switchCSSStyle('light')
       }
     }
   }
