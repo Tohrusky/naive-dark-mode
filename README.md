@@ -23,66 +23,53 @@ yarn add naive-dark-mode
 export type NaiveDarkModeType = undefined | 'light' | 'dark' | 'system'
 ```
 
-
 #### Component API
-
-| Property       | Type                  | Default        | Description                                                                                        |
-| ------------ | ---------------------- | -------------- |----------------------------------------------------------------------------------------------------|
-| dark-mode     | `NaiveDarkModeType`    | `'system'`     | The dark mode setting.                                                                             |
-| design-dark   | `string`               | `'#000000'`    | The design color for dark mode.                                                                    |
-| design-light  | `string`               | `'#ffffff'`    | The design color for light mode.                                                                   |
-| fade-layer    | `number`               | `25`           | The number of steps or iterations for the smooth transition to dark mode. `< 1` for no transition. |
-
-
-#### Exported Refs
-
-| Ref           | Description                                                  |
-| ------------- | ------------------------------------------------------------ |
-| naiveTheme    | Retrieves the current naive-ui theme.                        |
-| DarkTheme     | Reactive variable for the dark mode state.                   |
-| globalcolor   | Reactive variable for the global css color.                  |
-
-
-#### Exported Methods
-
-| Method           | Description                                                  |
-| ---------------- | ------------------------------------------------------------ |
-| switchCSSStyle   | Switches the CSS style sheet theme.                          |
-| switchTheme      | Switches the application theme.                              |
-| isCSSDark        | Checks if the current CSS style sheet is in dark mode.       |
-| isCSSLight       | Checks if the current CSS style sheet is in light mode.      |
-
+| Property            | Type                     | Default        | Description                       |
+| ------------------- | ------------------------ | -------------- | ----------------------------------|
+| dark-mode           | `NaiveDarkModeType`      | `'system'`     | The dark mode setting.            |
+| design-dark         | `string`                 | `'#000000'`    | The design color for dark mode.   |
+| design-light        | `string`                 | `'#ffffff'`    | The design color for light mode.  |
+| fade-layer          | `number`                 | `25`           | The number of steps or iterations for the smooth transition to dark mode. `< 1` for no transition. |
+| v-model:color       | `string`                 | `'#ffffff'`    | The transition color value.       |
+| v-model:naivetheme  | `any`                    | `undefined`    | The Naive UI theme.               |
 
 #### Example
-
 ```vue
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, Ref } from 'vue'
 import { NConfigProvider, NGlobalStyle } from 'naive-ui'
-import { NaiveDarkMode, NaiveDarkModeType, globalcolor, naiveTheme, switchTheme } from 'naive-dark-mode'
-  
-const dm = ref('system' as NaiveDarkModeType)
-  
-function handleDarkModeChange(mode: NaiveDarkModeType): void {
-  dm.value = mode
-  switchTheme(mode)
-}  
+import { NaiveDarkMode } from './index'
+import type { NaiveDarkModeType } from './index'
+
+const dmode = ref('system' as NaiveDarkModeType)
+// v-model child component
+const color = ref('')
+const naiveTheme: Ref<any> = ref(undefined)
+
+// // Change dark mode
+// function handleDarkModeChange(mode: NaiveDarkModeType): void {
+//   dmode.value = mode
+// }
 </script>
 
 <template>
   <n-config-provider :theme="naiveTheme">
     <n-global-style />
     <naive-dark-mode
-      :dark-mode="dm"
-      :design-light="'#f1baba'"
-      :design-dark="'#243333'"
+      v-model:color="color"
+      v-model:naivetheme="naiveTheme"
+      :dark-mode="dmode"
+      :fade-layer="20"
+      :design-light="'#fcf1f1'"
+      :design-dark="'#051f1f'"
       class="naive-dark-mode"
     />
+    <my-app />
   </n-config-provider>
 </template>
 
 <style lang="scss" scoped>
-$global-color: v-bind(globalcolor);
+$global-color: v-bind(color);
 
 .naive-dark-mode {
   box-sizing: border-box;
@@ -94,7 +81,9 @@ $global-color: v-bind(globalcolor);
   flex-direction: column;
 }
 </style>
+
 ```
+
 
 ## License
 naive-dark-mode is licensed under the MIT License.
