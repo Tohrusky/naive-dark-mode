@@ -8,7 +8,8 @@ import {
   NButton,
   NInputNumber,
   NGradientText,
-  NColorPicker
+  NColorPicker,
+  NButtonGroup
 } from 'naive-ui'
 import { NaiveDarkMode, NaiveDarkModeType, globalcolor, naiveTheme, switchTheme } from './index'
 
@@ -71,9 +72,15 @@ function handleDarkModeChange(mode: NaiveDarkModeType): void {
             </n-gradient-text>
           </n-space>
           <n-space justify="center">
-            <n-button round @click="handleDarkModeChange('system')"> System </n-button>
-            <n-button round @click="handleDarkModeChange('light')"> Light </n-button>
-            <n-button round @click="handleDarkModeChange('dark')"> Dark </n-button>
+            <n-button-group>
+              <n-button style="width: 80px" @click="handleDarkModeChange('system')">
+                System
+              </n-button>
+              <n-button style="width: 80px" @click="handleDarkModeChange('light')">
+                Light
+              </n-button>
+              <n-button style="width: 80px" @click="handleDarkModeChange('dark')"> Dark </n-button>
+            </n-button-group>
           </n-space>
           <n-space justify="center">
             <n-input-number
