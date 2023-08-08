@@ -57,14 +57,23 @@ export type NaiveDarkModeType = undefined | 'light' | 'dark' | 'system'
 
 ```vue
 <script lang="ts" setup>
+import { ref } from 'vue'
 import { NConfigProvider, NGlobalStyle } from 'naive-ui'
-import { NaiveDarkMode, globalcolor, naiveTheme } from 'naive-dark-mode'
+import { NaiveDarkMode, NaiveDarkModeType, globalcolor, naiveTheme, switchTheme } from 'naive-dark-mode'
+  
+const dm = ref('system' as NaiveDarkModeType)
+  
+function handleDarkModeChange(mode: NaiveDarkModeType): void {
+  dm.value = mode
+  switchTheme(mode)
+}  
 </script>
 
 <template>
   <n-config-provider :theme="naiveTheme">
     <n-global-style />
     <naive-dark-mode
+      :dark-mode="dm"
       :design-light="'#f1baba'"
       :design-dark="'#243333'"
       class="naive-dark-mode"
