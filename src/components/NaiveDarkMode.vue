@@ -47,15 +47,6 @@ onMounted(async () => {
     DarkTheme.value = osThemeRef.value === 'dark'
   } else {
     DarkTheme.value = DarkMode.value === 'dark'
-    if (DarkMode.value === 'dark') {
-      if (isCSSLight()) {
-        switchCSSStyle('dark')
-      }
-    } else {
-      if (isCSSDark()) {
-        switchCSSStyle('light')
-      }
-    }
   }
   // console.log('onMounted  ', DarkTheme.value)
 })
@@ -64,7 +55,21 @@ onMounted(async () => {
 watch(osThemeRef, (value) => {
   if (DarkMode.value === 'system' || DarkMode.value === undefined) {
     DarkTheme.value = value === 'dark'
-    // console.log('watch  ', DarkTheme.value)
+    // console.log('watch  osThemeRef', DarkTheme.value)
+  }
+})
+
+// 检测 DarkTheme.value，修改 CSS 样式
+watch(DarkTheme, (value) => {
+  // console.log('watch DarkTheme  ', value)
+  if (value) {
+    if (isCSSLight()) {
+      switchCSSStyle('dark')
+    }
+  } else {
+    if (isCSSDark()) {
+      switchCSSStyle('light')
+    }
   }
 })
 </script>

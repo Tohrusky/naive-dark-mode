@@ -95,17 +95,7 @@ function isCSSLight(): boolean {
  * @description Set the naive-ui theme according to the DarkTheme value
  */
 const naiveTheme = computed(() => {
-  if (DarkTheme.value) {
-    if (isCSSLight()) {
-      switchCSSStyle('dark')
-    }
-    return darkTheme
-  } else {
-    if (isCSSDark()) {
-      switchCSSStyle('light')
-    }
-    return undefined
-  }
+  return DarkTheme.value ? darkTheme : undefined
 })
 
 export { switchCSSStyle, switchTheme, isCSSDark, isCSSLight, naiveTheme }
