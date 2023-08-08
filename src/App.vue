@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, watch, watchEffect, Ref } from 'vue'
+import { ref, watch, Ref } from 'vue'
 import {
   NConfigProvider,
   NGlobalStyle,
@@ -12,7 +12,7 @@ import {
   NButtonGroup
 } from 'naive-ui'
 import { NaiveDarkMode } from './index'
-import type { NaiveDarkModeType, NaiveDarkModeExposeType } from './index'
+import type { NaiveDarkModeType } from './index'
 
 const dmode = ref((localStorage.getItem('dm') || 'system') as NaiveDarkModeType)
 
@@ -51,28 +51,18 @@ function handleDarkModeChange(mode: NaiveDarkModeType): void {
   dmode.value = mode
 }
 
-// 获取子组件 Expose 的值
+// v-model 子组件的值
+const color = ref('')
 
 const naiveTheme: Ref<any> = ref(undefined)
-
-const globalcolor: Ref<string> = ref('')
-
-const naiveComp: Ref<NaiveDarkModeExposeType> = ref(null)
-
-watchEffect(() => {
-  const childComponent = naiveComp.value
-  if (childComponent) {
-    globalcolor.value = childComponent.globalcolor
-    naiveTheme.value = childComponent.naiveTheme
-  }
-})
 </script>
 
 <template>
   <n-config-provider :theme="naiveTheme">
     <n-global-style />
     <NaiveDarkMode
-      ref="naiveComp"
+      v-model:color="color"
+      v-model:naivetheme="naiveTheme"
       :dark-mode="dmode"
       :fade-layer="fadeLayer"
       :design-light="light"
@@ -117,7 +107,7 @@ watchEffect(() => {
 </template>
 
 <style lang="scss" scoped>
-$global-color: v-bind(globalcolor);
+$global-color: v-bind(color);
 
 .naive-dark-mode {
   box-sizing: border-box;

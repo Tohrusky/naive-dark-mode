@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onBeforeMount, watch, PropType, onMounted, ref, Ref, nextTick, computed } from 'vue'
+import { onBeforeMount, watch, PropType, onMounted, ref, Ref, nextTick } from 'vue'
 import { useOsTheme, darkTheme } from 'naive-ui'
 import { NaiveDarkModeType } from '../types/MyTypes.ts'
 
@@ -17,7 +17,7 @@ const DesignLightColor = ref('#ffffff')
 const FadeLayer = ref(25)
 
 // -----------------------------------------------------------------------------
-// Props
+// Props and Emits
 // -----------------------------------------------------------------------------
 
 const props = defineProps({
@@ -36,8 +36,34 @@ const props = defineProps({
   fadeLayer: {
     type: Number,
     default: () => 25
+  },
+  color: {
+    type: String,
+    default: () => '#ffffff'
+  },
+  naivetheme: {
+    type: Object,
+    default: () => undefined
   }
 })
+
+const emits = defineEmits(['update:color', 'update:naivetheme'])
+
+// v-model 传入的 color
+watch(
+  () => globalcolor.value,
+  (value) => {
+    emits('update:color', value)
+  }
+)
+
+// v-model 传入的 naivetheme
+watch(
+  () => DarkTheme.value,
+  (value) => {
+    emits('update:naivetheme', value ? darkTheme : undefined)
+  }
+)
 
 onBeforeMount(() => {
   // 传入
@@ -128,22 +154,6 @@ watch(DarkTheme, (value) => {
       switchCSSStyle('light')
     }
   }
-})
-
-// -----------------------------------------------------------------------------
-// Expose
-// -----------------------------------------------------------------------------
-
-/**
- * @description Set the naive-ui theme according to the DarkTheme value
- */
-const naiveTheme = computed(() => {
-  return DarkTheme.value ? darkTheme : undefined
-})
-
-defineExpose({
-  globalcolor,
-  naiveTheme
 })
 
 // -----------------------------------------------------------------------------
