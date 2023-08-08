@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onBeforeMount, onMounted, watch, PropType } from 'vue'
+import { onBeforeMount, watch, PropType, onMounted } from 'vue'
 import { useOsTheme } from 'naive-ui'
 import {
   DarkMode,
@@ -34,28 +34,43 @@ const props = defineProps({
 })
 
 onBeforeMount(() => {
+  // 预设 DarkTheme.value
+  DarkTheme.value = false
+  // 传入
   DarkMode.value = props.darkMode
   DesignDarkColor.value = props.designDark
   DesignLightColor.value = props.designLight
   // set designLightColor to globalcolor
   globalcolor.value = props.designLight
   FadeLayer.value = props.fadeLayer
+  // console.log('onBeforeMount  DarkMode.value', DarkMode.value)
 })
 
-onMounted(async () => {
-  if (DarkMode.value === 'system' || DarkMode.value === undefined) {
+function handleDarkModeChange(mode: NaiveDarkModeType): void {
+  // console.log('handleDarkModeChange  DarkTheme.value', DarkTheme.value)
+  // console.log('handleDarkModeChange  mode', mode)
+  if (mode === 'system' || mode === undefined) {
     DarkTheme.value = osThemeRef.value === 'dark'
   } else {
-    DarkTheme.value = DarkMode.value === 'dark'
+    DarkTheme.value = mode === 'dark'
   }
-  // console.log('onMounted  ', DarkTheme.value)
+}
+
+onMounted(() => {
+  // console.log('onMounted  DarkMode.value', DarkMode.value)
+  handleDarkModeChange(DarkMode.value)
+})
+
+watch(DarkMode, (value) => {
+  // console.log('watch DarkMode  ', value)
+  handleDarkModeChange(value)
 })
 
 // 检测系统主题，修改 DarkTheme.value
 watch(osThemeRef, (value) => {
+  // console.log('watch  osThemeRef', value)
   if (DarkMode.value === 'system' || DarkMode.value === undefined) {
     DarkTheme.value = value === 'dark'
-    // console.log('watch  osThemeRef', DarkTheme.value)
   }
 })
 

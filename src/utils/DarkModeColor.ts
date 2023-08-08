@@ -3,7 +3,8 @@ import {
   globalcolor,
   DesignDarkColor,
   DesignLightColor,
-  FadeLayer
+  FadeLayer,
+  DarkMode
 } from '../store/DarkModeStore.ts'
 import { nextTick, computed } from 'vue'
 import { darkTheme, useOsTheme } from 'naive-ui'
@@ -69,12 +70,7 @@ function switchCSSStyle(mode: NaiveDarkModeType): void {
  * @param mode 'dark' or 'light' or 'system'
  */
 function switchTheme(mode: NaiveDarkModeType): void {
-  if (mode === 'system') {
-    const osThemeRef = useOsTheme()
-    DarkTheme.value = osThemeRef.value === 'dark'
-  } else {
-    DarkTheme.value = mode === 'dark'
-  }
+  DarkMode.value = mode
 }
 
 /**
