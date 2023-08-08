@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { ref, watch, watchEffect, Ref } from 'vue'
 import {
   NConfigProvider,
   NGlobalStyle,
@@ -11,9 +11,10 @@ import {
   NColorPicker,
   NButtonGroup
 } from 'naive-ui'
-import { NaiveDarkMode, NaiveDarkModeType, globalcolor, naiveTheme, switchTheme } from './index'
+import { NaiveDarkMode } from './index'
+import type { NaiveDarkModeType, NaiveDarkModeExposeType } from './index'
 
-const dm = ref((localStorage.getItem('dm') || 'system') as NaiveDarkModeType)
+const dmode = ref((localStorage.getItem('dm') || 'system') as NaiveDarkModeType)
 
 const fadeLayer = ref(Number(localStorage.getItem('fadeLayer')) || 25)
 
@@ -22,7 +23,7 @@ const light = ref((localStorage.getItem('light') || '#FFE0E0FC') as string)
 const dark = ref((localStorage.getItem('dark') || '#243333FC') as string)
 
 // Watch for changes in variable and update the localStorage
-watch(dm, (value) => {
+watch(dmode, (value) => {
   if (value) {
     localStorage.setItem('dm', value.toString())
   }
@@ -47,17 +48,32 @@ watch(dark, (value) => {
 })
 
 function handleDarkModeChange(mode: NaiveDarkModeType): void {
-  dm.value = mode
-  switchTheme(mode)
+  dmode.value = mode
 }
+
+// 获取子组件 Expose 的值
+
+const naiveTheme: Ref<any> = ref(undefined)
+
+const globalcolor: Ref<string> = ref('')
+
+const naiveComp: Ref<NaiveDarkModeExposeType> = ref(null)
+
+watchEffect(() => {
+  const childComponent = naiveComp.value
+  if (childComponent) {
+    globalcolor.value = childComponent.globalcolor
+    naiveTheme.value = childComponent.naiveTheme
+  }
+})
 </script>
 
 <template>
   <n-config-provider :theme="naiveTheme">
     <n-global-style />
     <NaiveDarkMode
-      :key="fadeLayer?.toString() + light.toString() + dark.toString()"
-      :dark-mode="dm"
+      ref="naiveComp"
+      :dark-mode="dmode"
       :fade-layer="fadeLayer"
       :design-light="light"
       :design-dark="dark"
@@ -68,7 +84,7 @@ function handleDarkModeChange(mode: NaiveDarkModeType): void {
         <n-space vertical>
           <n-space justify="center">
             <n-gradient-text :size="20">
-              {{ dm }}
+              {{ dmode }}
             </n-gradient-text>
           </n-space>
           <n-space justify="center">
