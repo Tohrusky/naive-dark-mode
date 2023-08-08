@@ -55,7 +55,7 @@ function handleDarkModeChange(mode: NaiveDarkModeType): void {
   <n-config-provider :theme="naiveTheme">
     <n-global-style />
     <NaiveDarkMode
-      :key="fadeLayer.toString() + light.toString() + dark.toString()"
+      :key="fadeLayer?.toString() + light.toString() + dark.toString()"
       :dark-mode="dm"
       :fade-layer="fadeLayer"
       :design-light="light"
