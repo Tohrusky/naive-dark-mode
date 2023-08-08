@@ -1,6 +1,6 @@
 {
   "name": "naive-dark-mode",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dark Mode for Vue3 and Naive UI.",
   "private": false,
   "author": "Tohrusky",
@@ -8,13 +8,15 @@
   "main": "./dist/naive-dark-mode.mjs",
   "module": "./dist/naive-dark-mode.mjs",
   "types": "./dist/naive-dark-mode.d.ts",
+  "web-types": "web-types.json",
   "files": [
     "dist/*.mjs",
     "dist/*.d.ts",
     "dist/*.js",
     "dist/*.cjs",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "web-types.json"
   ],
   "homepage": "https://github.com/Tohrusky/naive-dark-mode",
   "repository": {

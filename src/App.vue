@@ -60,7 +60,7 @@ const naiveTheme: Ref<any> = ref(undefined)
 <template>
   <n-config-provider :theme="naiveTheme">
     <n-global-style />
-    <NaiveDarkMode
+    <naive-dark-mode
       v-model:color="color"
       v-model:naivetheme="naiveTheme"
       :dark-mode="dmode"
