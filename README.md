@@ -38,8 +38,8 @@ export type NaiveDarkModeType = undefined | 'light' | 'dark' | 'system'
 <script lang="ts" setup>
 import { ref, Ref } from 'vue'
 import { NConfigProvider, NGlobalStyle } from 'naive-ui'
-import { NaiveDarkMode } from './index'
-import type { NaiveDarkModeType } from './index'
+import { NaiveDarkMode } from 'naive-dark-mode'
+import type { NaiveDarkModeType } from 'naive-dark-mode'
 
 const dmode = ref('system' as NaiveDarkModeType)
 // v-model child component
