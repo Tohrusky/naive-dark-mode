@@ -93,6 +93,7 @@ const naiveTheme: Ref<any> = ref(undefined)
               />
             </n-radio-group>
           </n-space>
+          <div />
           <n-space justify="center">
             <n-input-number
               v-model:value="fadeLayer"
@@ -102,8 +103,11 @@ const naiveTheme: Ref<any> = ref(undefined)
               placeholder="FadeLayer"
             />
           </n-space>
-          <n-color-picker v-model:value="light" :modes="['hex']" />
-          <n-color-picker v-model:value="dark" :modes="['hex']" />
+          <div />
+          <n-space vertical>
+            <n-color-picker v-model:value="light" :modes="['hex']" />
+            <n-color-picker v-model:value="dark" :modes="['hex']" />
+          </n-space>
         </n-space>
       </n-card>
     </div>
