@@ -92,7 +92,6 @@ const naiveTheme: Ref<any> = ref(undefined)
             <n-input-number
               v-model:value="fadeLayer"
               clearable
-              min="0"
               step="1"
               style="width: 240px"
               placeholder="FadeLayer"
