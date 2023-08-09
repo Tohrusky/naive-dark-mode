@@ -5,16 +5,30 @@ import {
   NGlobalStyle,
   NCard,
   NSpace,
-  NButton,
   NInputNumber,
-  NGradientText,
   NColorPicker,
-  NButtonGroup
+  NRadioGroup,
+  NRadioButton
 } from 'naive-ui'
 import { NaiveDarkMode } from './index'
 import type { NaiveDarkModeType } from './index'
 
 const dmode = ref((localStorage.getItem('dm') || 'system') as NaiveDarkModeType)
+
+const modes: { value: NaiveDarkModeType; label: string }[] = [
+  {
+    value: 'system',
+    label: 'System'
+  },
+  {
+    value: 'light',
+    label: 'Light'
+  },
+  {
+    value: 'dark',
+    label: 'Dark'
+  }
+]
 
 const fadeLayer = ref(Number(localStorage.getItem('fadeLayer')) || 25)
 
@@ -47,10 +61,6 @@ watch(dark, (value) => {
   }
 })
 
-function handleDarkModeChange(mode: NaiveDarkModeType): void {
-  dmode.value = mode
-}
-
 // v-model 子组件的值
 const color = ref('')
 
@@ -73,20 +83,15 @@ const naiveTheme: Ref<any> = ref(undefined)
       <n-card hoverable style="width: fit-content">
         <n-space vertical>
           <n-space justify="center">
-            <n-gradient-text :size="20">
-              {{ dmode }}
-            </n-gradient-text>
-          </n-space>
-          <n-space justify="center">
-            <n-button-group>
-              <n-button style="width: 80px" @click="handleDarkModeChange('system')">
-                System
-              </n-button>
-              <n-button style="width: 80px" @click="handleDarkModeChange('light')">
-                Light
-              </n-button>
-              <n-button style="width: 80px" @click="handleDarkModeChange('dark')"> Dark </n-button>
-            </n-button-group>
+            <n-radio-group v-model:value="dmode">
+              <n-radio-button
+                v-for="m in modes"
+                :key="m.value"
+                :value="m.value"
+                :label="m.label"
+                style="width: 80px"
+              />
+            </n-radio-group>
           </n-space>
           <n-space justify="center">
             <n-input-number
