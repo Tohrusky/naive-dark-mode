@@ -70,7 +70,7 @@ const naiveTheme: Ref<any> = ref(undefined)
       class="naive-dark-mode"
     />
     <div class="main-space">
-      <n-card style="width: fit-content">
+      <n-card hoverable style="width: fit-content">
         <n-space vertical>
           <n-space justify="center">
             <n-gradient-text :size="20">
