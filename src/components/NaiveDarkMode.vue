@@ -10,8 +10,8 @@ import { NaiveDarkModeType } from '../types/MyTypes.ts'
 const osThemeRef = useOsTheme()
 
 const DarkMode: Ref<NaiveDarkModeType> = ref(undefined)
-const globalcolor = ref('#ffffff')
-const DarkTheme = ref(false)
+const globalcolor = ref('')
+const DarkTheme: Ref<boolean | undefined> = ref(undefined)
 const DesignDarkColor = ref('#000000')
 const DesignLightColor = ref('#ffffff')
 const FadeLayer = ref(25)
@@ -70,7 +70,7 @@ onBeforeMount(() => {
   DarkMode.value = props.darkMode
   DesignDarkColor.value = props.designDark
   DesignLightColor.value = props.designLight
-  // set designLightColor to globalcolor
+  // set designLightColor to globalcolor, update:color
   globalcolor.value = props.designLight
   FadeLayer.value = props.fadeLayer
   // console.log('onBeforeMount  DarkMode.value', DarkMode.value)
@@ -114,6 +114,10 @@ watch(
   }
 )
 
+/**
+ * @description update DarkTheme.value and update:naivetheme
+ * @param mode 'dark' or 'light' or 'system'
+ */
 function handleDarkModeChange(mode: NaiveDarkModeType): void {
   // console.log('handleDarkModeChange  DarkTheme.value', DarkTheme.value)
   // console.log('handleDarkModeChange  mode', mode)
