@@ -24,14 +24,14 @@ export type NaiveDarkModeType = undefined | 'light' | 'dark' | 'system'
 ```
 
 #### Component API
-| Property            | Type                     | Default        | Description                       |
-| ------------------- | ------------------------ | -------------- | ----------------------------------|
-| dark-mode           | `NaiveDarkModeType`      | `'system'`     | The dark mode setting.            |
-| design-dark         | `string`                 | `'#000000'`    | The design color for dark mode.   |
-| design-light        | `string`                 | `'#ffffff'`    | The design color for light mode.  |
-| fade-layer          | `number`                 | `25`           | The number of steps or iterations for the smooth transition to dark mode. `< 1` for no transition. |
-| v-model:color       | `string`                 | `'#ffffff'`    | The transition color value.       |
-| v-model:naivetheme  | `any`                    | `undefined`    | The Naive UI theme.               |
+| Property            | Type                     | Default        | Description                                                                                         |
+| ------------------- | ------------------------ | -------------- |-----------------------------------------------------------------------------------------------------|
+| dark-mode           | `NaiveDarkModeType`      | `'system'`     | The dark mode setting.                                                                              |
+| design-dark         | `string`                 | `'#000000'`    | The design color for dark mode.                                                                     |
+| design-light        | `string`                 | `'#ffffff'`    | The design color for light mode.                                                                    |
+| fade-layer          | `number`                 | `25`           | The number of steps or iterations for the smooth transition to dark mode. `<= 0` for no transition. |
+| v-model:color       | `string`                 | `'#ffffff'`    | The transition color value.                                                                         |
+| v-model:naivetheme  | `any`                    | `undefined`    | The Naive UI theme.                                                                                 |
 
 #### Example
 ```vue
