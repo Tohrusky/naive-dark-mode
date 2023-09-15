@@ -13,7 +13,7 @@ Dark Mode for Vue3 and Naive UI.
 Use your favorite package manager to install:
 
 ```shell
-yarn add naive-dark-mode
+yarn add @tohrusky/naive-dark-mode
 ```
 
 
