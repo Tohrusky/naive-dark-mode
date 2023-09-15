@@ -1,6 +1,6 @@
 {
-  "name": "naive-dark-mode-1",
-  "version": "0.1.3",
+  "name": "@tohrusky/naive-dark-mode",
+  "version": "0.1.4",
   "description": "Dark Mode for Vue3 and Naive UI.",
   "private": false,
   "author": "Tohrusky",
