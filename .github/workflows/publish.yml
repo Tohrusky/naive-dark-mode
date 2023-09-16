@@ -16,12 +16,10 @@ jobs:
         with:
           version: 8
 
-      - name: build
+      - name: publish
         run: |
           pnpm install
           pnpm run lib
-
-      - uses: JS-DevTools/npm-publish@v2
-        with:
-          access: public
-          token: ${{ secrets.NPM_TOKEN }}
+          pnpm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
