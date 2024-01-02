@@ -1,39 +1,42 @@
 # Naïve Dark Mode
+
 Dark Mode for Vue3 and Naive UI.
 
 [![npm version](https://badge.fury.io/js/naive-dark-mode.svg)](https://badge.fury.io/js/naive-dark-mode)
 [![publish](https://github.com/Tohrusky/naive-dark-mode/actions/workflows/publish.yml/badge.svg)](https://github.com/Tohrusky/naive-dark-mode/actions/workflows/publish.yml)
 ![GitHub](https://img.shields.io/github/license/Tohrusky/naive-dark-mode)
 
-
 ## [Online Demo](https://naive-dark-mode.tohru.top/)
 
-
 ## Installation
+
 Use your favorite package manager to install:
 
 ```shell
 yarn add naive-dark-mode
 ```
 
-
 ## Usage
+
 #### Type
+
 ```typescript
 export type NaiveDarkModeType = undefined | 'light' | 'dark' | 'system'
 ```
 
 #### Component API
-| Property            | Type                     | Default        | Description                                                                                         |
-| ------------------- | ------------------------ | -------------- |-----------------------------------------------------------------------------------------------------|
-| dark-mode           | `NaiveDarkModeType`      | `'system'`     | The dark mode setting.                                                                              |
-| design-dark         | `string`                 | `'#000000'`    | The design color for dark mode.                                                                     |
-| design-light        | `string`                 | `'#ffffff'`    | The design color for light mode.                                                                    |
-| fade-layer          | `number`                 | `25`           | The number of steps or iterations for the smooth transition to dark mode. `<= 0` for no transition. |
-| v-model:color       | `string`                 | `'#ffffff'`    | The transition color value.                                                                         |
-| v-model:naivetheme  | `any`                    | `undefined`    | The Naive UI theme.                                                                                 |
+
+| Property           | Type                | Default     | Description                                                                                         |
+| ------------------ | ------------------- | ----------- | --------------------------------------------------------------------------------------------------- |
+| dark-mode          | `NaiveDarkModeType` | `'system'`  | The dark mode setting.                                                                              |
+| design-dark        | `string`            | `'#000000'` | The design color for dark mode.                                                                     |
+| design-light       | `string`            | `'#ffffff'` | The design color for light mode.                                                                    |
+| fade-layer         | `number`            | `25`        | The number of steps or iterations for the smooth transition to dark mode. `<= 0` for no transition. |
+| v-model:color      | `string`            | `'#ffffff'` | The transition color value.                                                                         |
+| v-model:naivetheme | `any`               | `undefined` | The Naive UI theme.                                                                                 |
 
 #### Example
+
 ```vue
 <script lang="ts" setup>
 import { ref, Ref } from 'vue'
@@ -81,9 +84,8 @@ $global-color: v-bind(color);
   flex-direction: column;
 }
 </style>
-
 ```
 
-
 ## License
+
 naive-dark-mode is licensed under the MIT License.

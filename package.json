@@ -1,6 +1,6 @@
 {
   "name": "naive-dark-mode",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Dark Mode for Vue3 and Naive UI.",
   "private": false,
   "author": "Tohrusky",
@@ -35,31 +35,31 @@
     "dev": "vite",
     "build": "pnpm typecheck && vite build",
     "preview": "pnpm build && vite preview",
-    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.vue --fix",
+    "lint": "prettier --write . && eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.vue --fix",
     "typecheck": "pnpm lint && vue-tsc --noEmit",
     "lib": "pnpm typecheck && vite build --mode lib"
   },
   "dependencies": {
-    "naive-ui": "^2.35.0",
-    "sass": "^1.69.0",
-    "vue": "^3.3.4"
+    "naive-ui": "^2.36.0",
+    "sass": "^1.69.6",
+    "vue": "^3.4.3"
   },
   "devDependencies": {
-    "@babel/types": "^7.23.0",
-    "@rushstack/eslint-patch": "^1.5.1",
+    "@babel/types": "^7.23.6",
+    "@rushstack/eslint-patch": "^1.6.1",
     "@types/node": "20.4.5",
-    "@typescript-eslint/eslint-plugin": "^6.7.4",
-    "@typescript-eslint/parser": "^6.7.4",
-    "@vitejs/plugin-vue": "^4.4.0",
-    "@vue/compiler-core": "^3.3.4",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "@vitejs/plugin-vue": "^4.6.2",
+    "@vue/compiler-core": "^3.4.3",
     "@vue/eslint-config-prettier": "^8.0.0",
     "@vue/eslint-config-typescript": "^11.0.3",
-    "eslint": "^8.51.0",
-    "eslint-plugin-vue": "^9.17.0",
-    "prettier": "^3.0.3",
-    "typescript": "^5.2.2",
-    "vite": "^4.4.11",
-    "vite-plugin-dts": "^3.6.0",
-    "vue-tsc": "^1.8.18"
+    "eslint": "^8.56.0",
+    "eslint-plugin-vue": "^9.19.2",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3",
+    "vite": "^4.5.1",
+    "vite-plugin-dts": "^3.7.0",
+    "vue-tsc": "^1.8.27"
   }
 }
