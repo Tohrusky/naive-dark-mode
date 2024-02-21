@@ -34,7 +34,7 @@
             },
             {
               "name": "fade-layer",
-              "description": "The number of steps or iterations for the smooth transition to dark mode. <= 0 for no transition.",
+              "description": "The number of steps or iterations for the smooth transition to dark mode. <= 0 for no transition. You can use CSS  transition to control.",
               "default": "25"
             },
             {
