@@ -14,7 +14,7 @@ const globalcolor = ref('')
 const DarkTheme: Ref<boolean | undefined> = ref(undefined)
 const DesignDarkColor = ref('#000000')
 const DesignLightColor = ref('#ffffff')
-const FadeLayer = ref(25)
+const FadeLayer = ref(25) // 不想用 CSS Transition，可以用 JS 实现捏
 
 // -----------------------------------------------------------------------------
 // Props and Emits
