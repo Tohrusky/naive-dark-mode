@@ -33,7 +33,7 @@ devDependencies:
     version: 6.21.0(eslint@8.57.0)(typescript@5.4.2)
   '@vitejs/plugin-vue':
     specifier: ^5.0.4
-    version: 5.0.4(vite@5.1.5)(vue@3.4.21)
+    version: 5.0.4(vite@5.1.6)(vue@3.4.21)
   '@vue/compiler-core':
     specifier: ^3.4.21
     version: 3.4.21
@@ -57,10 +57,10 @@ devDependencies:
     version: 5.4.2
   vite:
     specifier: ^5.1.5
-    version: 5.1.5(@types/node@20.10.6)(sass@1.71.1)
+    version: 5.1.6(@types/node@20.10.6)(sass@1.71.1)
   vite-plugin-dts:
     specifier: ^3.7.3
-    version: 3.7.3(@types/node@20.10.6)(typescript@5.4.2)(vite@5.1.5)
+    version: 3.7.3(@types/node@20.10.6)(typescript@5.4.2)(vite@5.1.6)
   vue-tsc:
     specifier: ^1.8.27
     version: 1.8.27(typescript@5.4.2)
@@ -520,7 +520,6 @@ packages:
     resolution: {integrity: sha512-0bK9aG1kIg0Su7OcFTlexkVeNZ5IzEsnz1ept87a0TUgZ6HplSgkJAnFpEVRW7GRcikT4GlPV0pbtVedOaXHQQ==}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -529,7 +528,6 @@ packages:
     resolution: {integrity: sha512-qB6AFRXuP8bdkBI4D7UPUbE7OQf7u5OL+R94JE42Z2Qjmyj74FtDdLGeriRyBDhm4rQSvqAGCGC01b8Fu2LthQ==}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -538,7 +536,6 @@ packages:
     resolution: {integrity: sha512-sHig3LaGlpNgDj5o8uPEoGs98RII8HpNIqFtAI8/pYABO8i0nb1QzT0JDoXF/pxzqO+FkxvwkHZo9k0NJYDedg==}
     cpu: [riscv64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -547,7 +544,6 @@ packages:
     resolution: {integrity: sha512-nD3YcUv6jBJbBNFvSbp0IV66+ba/1teuBcu+fBBPZ33sidxitc6ErhON3JNavaH8HlswhWMC3s5rgZpM4MtPqQ==}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -556,7 +552,6 @@ packages:
     resolution: {integrity: sha512-7/XVZqgBby2qp/cO0TQ8uJK+9xnSdJ9ct6gSDdEr4MfABrjTyrW6Bau7HQ73a2a5tPB7hno49A0y1jhWGDN9OQ==}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -795,14 +790,14 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@vitejs/plugin-vue@5.0.4(vite@5.1.5)(vue@3.4.21):
+  /@vitejs/plugin-vue@5.0.4(vite@5.1.6)(vue@3.4.21):
     resolution: {integrity: sha512-WS3hevEszI6CEVEx28F8RjTX97k3KsrcY6kvTg7+Whm5y3oYvcqzVeGCU3hxSAn4uY2CLCkeokkGKpoctccilQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       vite: ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.1.5(@types/node@20.10.6)(sass@1.71.1)
+      vite: 5.1.6(@types/node@20.10.6)(sass@1.71.1)
       vue: 3.4.21(typescript@5.4.2)
     dev: true
 
@@ -2134,7 +2129,7 @@ packages:
       vue: 3.4.21(typescript@5.4.2)
     dev: false
 
-  /vite-plugin-dts@3.7.3(@types/node@20.10.6)(typescript@5.4.2)(vite@5.1.5):
+  /vite-plugin-dts@3.7.3(@types/node@20.10.6)(typescript@5.4.2)(vite@5.1.6):
     resolution: {integrity: sha512-26eTlBYdpjRLWCsTJebM8vkCieE+p9gP3raf+ecDnzzK5E3FG6VE1wcy55OkRpfWWVlVvKkYFe6uvRHYWx7Nog==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -2150,7 +2145,7 @@ packages:
       debug: 4.3.4
       kolorist: 1.8.0
       typescript: 5.4.2
-      vite: 5.1.5(@types/node@20.10.6)(sass@1.71.1)
+      vite: 5.1.6(@types/node@20.10.6)(sass@1.71.1)
       vue-tsc: 1.8.27(typescript@5.4.2)
     transitivePeerDependencies:
       - '@types/node'
@@ -2158,8 +2153,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite@5.1.5(@types/node@20.10.6)(sass@1.71.1):
-    resolution: {integrity: sha512-BdN1xh0Of/oQafhU+FvopafUp6WaYenLU/NFoL5WyJL++GxkNfieKzBhM24H3HVsPQrlAqB7iJYTHabzaRed5Q==}
+  /vite@5.1.6(@types/node@20.10.6)(sass@1.71.1):
+    resolution: {integrity: sha512-yYIAZs9nVfRJ/AiOLCA91zzhjsHUgMjB+EigzFb6W2XTLO8JixBCKCjvhKZaye+NKYHCrkv3Oh50dH9EdLU2RA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
