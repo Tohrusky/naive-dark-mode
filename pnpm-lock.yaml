@@ -21,7 +21,7 @@ devDependencies:
     version: 7.24.0
   '@rushstack/eslint-patch':
     specifier: ^1.8.0
-    version: 1.8.0
+    version: 1.10.1
   '@types/node':
     specifier: 20.11.30
     version: 20.11.30
@@ -585,8 +585,8 @@ packages:
     dev: true
     optional: true
 
-  /@rushstack/eslint-patch@1.8.0:
-    resolution: {integrity: sha512-0HejFckBN2W+ucM6cUOlwsByTKt9/+0tWhqUffNIcHqCXkthY/mZ7AuYPK/2IIaGWhdl0h+tICDO0ssLMd6XMQ==}
+  /@rushstack/eslint-patch@1.10.1:
+    resolution: {integrity: sha512-S3Kq8e7LqxkA9s7HKLqXGTGck1uwis5vAXan3FnU5yw1Ec5hsSGnq4s/UCaSqABPOnOTg7zASLyst7+ohgWexg==}
     dev: true
 
   /@rushstack/node-core-library@3.62.0(@types/node@20.11.30):
