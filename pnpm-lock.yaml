@@ -60,7 +60,7 @@ devDependencies:
     version: 5.2.8(@types/node@20.11.30)(sass@1.74.1)
   vite-plugin-dts:
     specifier: ^3.8.1
-    version: 3.8.1(@types/node@20.11.30)(typescript@5.4.5)(vite@5.2.8)
+    version: 3.8.3(@types/node@20.11.30)(typescript@5.4.5)(vite@5.2.8)
   vue-tsc:
     specifier: ^1.8.27
     version: 1.8.27(typescript@5.4.5)
@@ -2185,8 +2185,8 @@ packages:
       vue: 3.4.21(typescript@5.4.5)
     dev: false
 
-  /vite-plugin-dts@3.8.1(@types/node@20.11.30)(typescript@5.4.5)(vite@5.2.8):
-    resolution: {integrity: sha512-zEYyQxH7lKto1VTKZHF3ZZeOPkkJgnMrePY4VxDHfDSvDjmYMMfWjZxYmNwW8QxbaItWJQhhXY+geAbyNphI7g==}
+  /vite-plugin-dts@3.8.3(@types/node@20.11.30)(typescript@5.4.5)(vite@5.2.8):
+    resolution: {integrity: sha512-yRHiRosQw7MXdOhmcrVI+kRiB8YEShbSxnADNteK4eZGdEoyOkMHihvO5XOAVlOq8ng9sIqu8vVefDK1zcj3qw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       typescript: '*'
